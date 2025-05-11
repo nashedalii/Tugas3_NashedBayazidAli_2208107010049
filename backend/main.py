@@ -45,7 +45,14 @@ def preprocess_pipeline(image: Image.Image, IMG_SIZE = (224, 224)) -> np.ndarray
     - Melakukan rescaling pixel dari [0,255] ke [0,1].
     """
     
-    # TODO: Lengkapi proses preprocessing di bawah ini
+    # Resize gambar
+    image = image.resize(IMG_SIZE)
+
+    # Ubah menjadi array
+    arr = np.asarray(image).astype(np.float32)
+
+    # Normalisasi pixel ke [0,1]
+    arr = arr / 255.0
     
     return arr  # pastikan mengembalikan array hasil preprocessing
 
